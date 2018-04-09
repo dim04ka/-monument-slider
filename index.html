@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1"  content="width=device-width"> 
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet"  href="styles/lightslider.css">
+    </head>
+<body>
+<!--     <div class="section">
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="block block-pam" id="thumbs">
+                            <a href="img/pam1.png"><img src="img/pam1.png" alt="pam1"></a>
+                            <a href="img/pam2.png"><img src="img/pam2.png" alt="pam2"></a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="block block-ogr" id="thumbs2">
+                                <a href="img/ogr1.png"><img src="img/ogr1.png" alt="ogr1"></a>
+                                <a href="img/ogr2.png"><img src="img/ogr2.png" alt="ogr2"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-block">
+                    <div class="col-6">
+                            <img src="img/pam1.png" alt="photo2"  id="largeImg2"> 
+                             
+                    </div> 
+                    <div class="col-6 ">
+                            <img src="img/pam1.png" alt="photo1"  id="largeImg"> 
+                            <img src="img/pam1.png" alt="photo2"  id="largeImg3">
+                    </div>
+                    <div class="col">
+                        <img src="img/pl.png">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+ -->
+
+
+    <div class="wrapper">
+        <div class="block">
+            <div class="demo">
+              <div class="item" id="thumbs">
+                  <ul id="content-slider" class="content-slider" >
+                      <li>
+                          <a href="img/pam1.png"><img src="img/pam1.png"></a>
+                      </li>
+                      <li>
+                          <a href="img/pam2.png"><img src="img/pam2.png"></a>
+                      </li>
+                      <li>
+                          <a href="img/pam3.png"><img src="img/pam3.png"></a>
+                      </li>
+                      <li>
+                        <a href="img/pam4.png"><img src="img/pam4.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/pam5.png"><img src="img/pam5.png"></a>
+                    </li>
+                  </ul>
+              </div>
+            <!-- /demo-->
+            </div>
+            <div class="demo">
+              <div class="item" id="thumbs2">
+                  <ul id="content-slider2" class="content-slider2">
+                      <li>
+                          <a href="img/ogr1.png"><img src="img/ogr1.png"></a>
+                      </li>
+                      <li>
+                          <a href="img/ogr2.png"><img src="img/ogr2.png"></a>
+                      </li>
+                      <li>
+                        <a href="img/ogr3.png"><img src="img/ogr3.png"></a>
+                    </li>
+                  </ul>
+              </div>
+          <!-- /demo-->
+          </div> 
+          <div class="demo">
+            <div class="item" id="thumbs3">
+                <ul id="content-slider3" class="content-slider3" >
+                    <li>
+                        <a href="img/pl.png"><img src="img/pl.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/pl2.png"><img src="img/pl2.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/pl3.png"><img src="img/pl3.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/pl4.png"><img src="img/pl4.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/pl5.png"><img src="img/pl5.png"></a>
+                    </li>
+                </ul>
+            </div>
+          <!-- /demo-->
+          </div>
+        <!-- /block -->
+        </div>
+      <!-- /wrapper-->
+      </div>
+      <div class="row-block">
+        <div class="col">
+                <img src=""   id="largeImg2"> 
+        </div> 
+        <div class="col">
+                <img src=""   id="largeImg"> 
+                <img src=""   id="largeImg3">
+        </div>
+        <img src="img/pl.png" id="largeImg4" class="plitka">
+    </div>
+
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="js/lightslider.js"></script>
+      <script src="js/slider.js"></script>
+
+
+   <script>
+//-----------------------------------------------памятник
+            var largeImg = document.getElementById('largeImg');
+            document.getElementById('thumbs').onclick = function(event) {
+            var target = event.target;
+                while (target != this) { 
+                    if (target.nodeName == 'A') {
+                        var str = target.href;
+                    showThumbnail(target.href);
+                    return false; 
+                    }
+                        target = target.parentNode; 
+                    }
+            }
+            function showThumbnail(href) { 
+                largeImg.src = href;
+            }
+//-----------------------------------------------поиск по второму параметру
+var largeImg2 = document.getElementById('largeImg2');
+var largeImg3 = document.getElementById('largeImg3');
+document.getElementById('thumbs2').onclick = function(event) {
+var target = event.target;
+    while (target != this) { 
+        if (target.nodeName == 'A') {
+            var str = target.href;
+            strz = str.substr(0,str.length-4)+"-z"+ str.substr(str.length-4);
+            strp = str.substr(0,str.length-4)+"-p"+ str.substr(str.length-4);
+            /* largeImg2.src = strz;
+            largeImg3.src = strp; */
+            console.log(strz);
+            console.log(strp);
+        showThumbnail2(strz, strp);
+        return false; 
+        }
+            target = target.parentNode; 
+        }
+}
+function showThumbnail2(strz) { 
+    largeImg2.src = strz;
+    largeImg3.src = strp; 
+} 
+
+//-------------------------------------------плитка 
+            var largeImg4 = document.getElementById('largeImg4');
+            document.getElementById('thumbs3').onclick = function(event) {
+            var target = event.target;
+                while (target != this) { 
+                    if (target.nodeName == 'A') {
+                        var str = target.href;
+                    showThumbnail3(target.href);
+                    return false; 
+                    }
+                        target = target.parentNode; 
+                    }
+            }
+            function showThumbnail3(href) { 
+                largeImg4.src = href;
+            }
+</script> 
+</body>
+</html>
